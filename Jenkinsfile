@@ -1,17 +1,5 @@
 node {
-    def app
- 
-    
-    
-    String jenkinsUserId = sh(returnStdout: true, script: 'id -u jenkins').trim()
-    String dockerGroupId = sh(returnStdout: true, script: 'getent group docker | cut -d: -f3').trim()
-    String containerUserMapping = "-u $jenkinsUserId:$dockerGroupId "
-    docker.image('image')
-        .inside(containerUserMapping + ' -v /var/run/docker.sock:/var/run/docker.sock:ro') {
-             sh "..."
-         }
-    
-    
+    def app 
     
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
@@ -23,7 +11,10 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("ankit-prasad/edureka")
+        app.inside{
+            sh 'sudo docker build ankit-prasad/edureka'
+          //app  = docker.build("ankit-prasad/edureka")
+        }
     }
 
     stage('Test image') {
