@@ -1,16 +1,6 @@
 node {
     def app
-    agent none
-    stages{
-        
-    stage('Fix permission issue') {
-
-            agent any
-
-            steps {
-                sh "sudo chown root:jenkins /run/docker.sock"
-            }
-    }  
+ 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
@@ -43,5 +33,4 @@ node {
             app.push("latest")
         }
     }
-}
 }
