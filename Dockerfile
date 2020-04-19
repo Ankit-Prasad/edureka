@@ -1,12 +1,6 @@
 # use a node base image
 FROM node:7-onbuild
 
-############################################
-#   A D D E D  TO  FIX the permission issue
-############################################
-RUN echo "jenkins ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-############################################
-
 # set maintainer
 LABEL maintainer "miiro@getintodevops.com"
 
