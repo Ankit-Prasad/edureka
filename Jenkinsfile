@@ -1,7 +1,9 @@
 node {
     def app
-
-    stage('Fix the permission issue') {
+    agent none
+    stages{
+        
+    stage('Fix permission issue') {
 
             agent any
 
@@ -41,4 +43,5 @@ node {
             app.push("latest")
         }
     }
+}
 }
