@@ -8,7 +8,7 @@ node {
     }
 
     stage('run docker'){
-        sh 'service docker start'
+        sh 'sudo service docker start'
     }
     stage('Build image') {
         /* This builds the actual image; synonymous to
