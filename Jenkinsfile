@@ -1,15 +1,19 @@
 node {
     def app 
     
+    agent {
+        docker {
+            image 'ubuntu'
+            args '-u root:sudo -v $HOME/workspace/myproject:/myproject'
+        }
+    }
+    
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
         checkout scm
     }
 
-    stage('run docker'){
-        sh 'sudo service docker start'
-    }
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
