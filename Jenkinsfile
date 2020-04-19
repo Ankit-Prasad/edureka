@@ -7,11 +7,14 @@ node {
         checkout scm
     }
 
+    stage('run docker'){
+        sh 'service docker start'
+    }
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
         
-          app  = sudo docker.build("ankit-prasad/edureka")
+          app = docker.build("ankit-prasad/edureka")
     }
 
     stage('Test image') {
