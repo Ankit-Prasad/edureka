@@ -10,9 +10,8 @@ node {
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-
-           app = sh 'sudo docker build ankit-prasad/edureka'
-          //app  = docker.build("ankit-prasad/edureka")
+        
+          app  = sudo docker.build("ankit-prasad/edureka")
     }
 
     stage('Test image') {
