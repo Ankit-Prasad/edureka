@@ -1,7 +1,7 @@
 node {
     def app
 
-    stage("Fix the permission issue") {
+    stage('Fix the permission issue') {
 
             agent any
 
