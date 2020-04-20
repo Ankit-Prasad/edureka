@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
             //sh 'sudo service docker start'
-          app = docker.build("ankit-prasad/edureka")
+          app = docker.build("ankitpd/edureka")
     }
 
     stage('Test image') {
