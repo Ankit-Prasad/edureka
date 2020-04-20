@@ -10,9 +10,7 @@ node {
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-        steps{
             sh 'service docker start'
-        }
           app = docker.build("ankit-prasad/edureka")
     }
 
